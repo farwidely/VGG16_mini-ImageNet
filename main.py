@@ -21,7 +21,6 @@ train_data_size = len(train_dataset)
 test_data_size = len(test_dataset)
 print(f"训练数据集的长度为: {train_data_size}")
 print(f"测试数据集的长度为: {test_data_size}")
-print("学号：221115194    姓名：邓广远")
 
 # 设置DataLoader
 train_dataloader = DataLoader(train_dataset, batch_size=64, shuffle=True)
@@ -121,4 +120,3 @@ for i in range(epoch):
 
 end = time.time()
 print(f"训练+测试总时长为{end - start}秒\n")
-print("学号：221115194    姓名：邓广远")
