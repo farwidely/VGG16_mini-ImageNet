@@ -30,7 +30,6 @@ test_dataloader = DataLoader(test_dataset, batch_size=64, shuffle=True)
 model = torchvision.models.vgg16(weights='IMAGENET1K_V1')
 
 # 冻结除全连接层外的模型参数
-num = 0
 for param in model.parameters():
     param.requires_grad = False
 
@@ -46,7 +45,6 @@ loss_fn.to(device)
 learning_rate = 1e-2
 momentum = 5e-1
 optimizer = torch.optim.SGD(model.classifier[6].parameters(), lr=learning_rate, momentum=momentum)
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=9e-1)
 
 # 设置训练网络的参数
 # 记录训练的次数
@@ -79,7 +77,6 @@ for i in range(epoch):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-        scheduler.step()
 
         total_train_step += 1
         if total_train_step % 100 == 0:
