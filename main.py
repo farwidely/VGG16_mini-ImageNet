@@ -79,6 +79,7 @@ for i in range(epoch):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+        scheduler.step()
 
         total_train_step += 1
         if total_train_step % 100 == 0:
